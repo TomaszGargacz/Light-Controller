@@ -126,6 +126,7 @@ unsigned long int tab[1024] =
 void setup() {
   Serial.begin(115200);
   pinMode(D3, OUTPUT); //podłączone oświetlenie
+  pinMode(D4, OUTPUT); //sygnalizacja połączenia Wi-Fi
   WiFi.config(ip,gateway,subnet);
   
  /*  for(int i = 0, j = 1; i < 1024; i++, j++) { //funkcja wyliczająca elementy tablicy, 1024 - ilość elementów tablicy (0-1023 10 bit)
@@ -174,63 +175,39 @@ void loop() {
 
             if (header.indexOf("GET /on") >= 0) { //włączanie światła
               operatingMode = "wl";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
              
             } else if (header.indexOf("GET /off") >= 0) { //wyłączanie światła
               operatingMode = "wy";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /10") >= 0) { //10%
               operatingMode = "10";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /20") >= 0) { //20%
               operatingMode = "20";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /30") >= 0) { //30%
               operatingMode = "30";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /40") >= 0) { //40%
               operatingMode = "40";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /50") >= 0) { //50%
               operatingMode = "50";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /60") >= 0) { //60%
               operatingMode = "60";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /70") >= 0) { //70%
               operatingMode = "70";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /80") >= 0) { //80%
               operatingMode = "80";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
               
             } else if (header.indexOf("GET /90") >= 0) { //90%
               operatingMode = "90";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
            
             } else if (header.indexOf("GET /pulse") >= 0) { //pulsujące
               operatingMode = "p";
-
-              client.println("<script type=\"text/javascript\">  history.back(); </script>");
             }
 
             // Początek HTML
